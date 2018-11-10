@@ -55,10 +55,10 @@ public class FlightDetails {
 	public void setAirline(String airline) {
 		this.airline = airline;
 	}
-	public int getAirlineCapacity() {
+	public int getAirplaneCapacity() {
 		return airplaneCapacity;
 	}
-	public void setAirlineCapacity(int airlineCapacity) {
+	public void setAirplaneCapacity(int airlineCapacity) {
 		this.airplaneCapacity = airlineCapacity;
 	}
 	public int getSeatsOccupied() {

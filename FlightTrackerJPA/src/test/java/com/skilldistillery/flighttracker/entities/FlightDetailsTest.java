@@ -1,6 +1,10 @@
 package com.skilldistillery.flighttracker.entities;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertNull;
+
+import java.sql.Timestamp;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -44,7 +48,18 @@ class FlightDetailsTest {
 	@DisplayName("Test Flight Details Mappings")
 	void test_FlightDetailsMappings() {
 		assertNotNull(flightDetails);
-//		assertEquals("skydiving", category.getName());
+		assertEquals("Southwest", flightDetails.getAirline());
+		assertEquals(175, flightDetails.getAirplaneCapacity());
+		assertEquals(170, flightDetails.getSeatsOccupied());
+		assertEquals(Timestamp.valueOf("2018-11-12 06:00:00.0"), flightDetails.getScheduledDeparture());
+		assertNull(flightDetails.getActualDeparture());
+		assertEquals(Timestamp.valueOf("2018-11-12 10:00:00.0"), flightDetails.getScheduledArrival());
+		assertNull(flightDetails.getActualArrival());
+		assertEquals("DEN", flightDetails.getDepartureAirport());
+		assertEquals("MDW", flightDetails.getArrivalAirport());
+		assertEquals("Boeing 737-MAX", flightDetails.getAirplane());
+		assertNull(flightDetails.getFlightNumer());
+		assertEquals(0, flightDetails.getNumberOfStops());
 	}
 
 }
