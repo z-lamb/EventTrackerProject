@@ -49,8 +49,8 @@ class FlightDetailsTest {
 	void test_FlightDetailsMappings() {
 		assertNotNull(flightDetails);
 		assertEquals("Southwest", flightDetails.getAirline());
-		assertEquals(175, flightDetails.getAirplaneCapacity());
-		assertEquals(170, flightDetails.getSeatsOccupied());
+		assertEquals(175, flightDetails.getAirplaneCapacity().intValue());
+		assertEquals(170, flightDetails.getSeatsOccupied().intValue());
 		assertEquals(Timestamp.valueOf("2018-11-12 06:00:00.0"), flightDetails.getScheduledDeparture());
 		assertNull(flightDetails.getActualDeparture());
 		assertEquals(Timestamp.valueOf("2018-11-12 10:00:00.0"), flightDetails.getScheduledArrival());
@@ -59,7 +59,7 @@ class FlightDetailsTest {
 		assertEquals("MDW", flightDetails.getArrivalAirport());
 		assertEquals("Boeing 737-MAX", flightDetails.getAirplane());
 		assertNull(flightDetails.getFlightNumer());
-		assertEquals(0, flightDetails.getNumberOfStops());
+		assertEquals(0, flightDetails.getNumberOfStops().intValue());
 	}
 
 }

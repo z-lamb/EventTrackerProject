@@ -19,9 +19,9 @@ public class FlightDetails {
 	private int id;
 	private String airline;
 	@Column(name="airplane_capacity")
-	private int airplaneCapacity;
+	private Integer airplaneCapacity;
 	@Column(name="seats_occupied")
-	private int seatsOccupied;
+	private Integer seatsOccupied;
 	@Column(name="scheduled_departure")
 	private Date scheduledDeparture;
 	@Column(name="actual_departure")
@@ -38,7 +38,7 @@ public class FlightDetails {
 	@Column(name="flight_number")
 	private String flightNumer;
 	@Column(name="number_of_stops")
-	private int numberOfStops;
+	private Integer numberOfStops;
 	
 	/*
 	 * getters / setters
@@ -55,16 +55,16 @@ public class FlightDetails {
 	public void setAirline(String airline) {
 		this.airline = airline;
 	}
-	public int getAirplaneCapacity() {
+	public Integer getAirplaneCapacity() {
 		return airplaneCapacity;
 	}
-	public void setAirplaneCapacity(int airlineCapacity) {
+	public void setAirplaneCapacity(Integer airlineCapacity) {
 		this.airplaneCapacity = airlineCapacity;
 	}
-	public int getSeatsOccupied() {
+	public Integer getSeatsOccupied() {
 		return seatsOccupied;
 	}
-	public void setSeatsOccupied(int seatsOccupied) {
+	public void setSeatsOccupied(Integer seatsOccupied) {
 		this.seatsOccupied = seatsOccupied;
 	}
 	public Date getScheduledDeparture() {
@@ -115,10 +115,10 @@ public class FlightDetails {
 	public void setFlightNumer(String flightNumer) {
 		this.flightNumer = flightNumer;
 	}
-	public int getNumberOfStops() {
+	public Integer getNumberOfStops() {
 		return numberOfStops;
 	}
-	public void setNumberOfStops(int numberOfStops) {
+	public void setNumberOfStops(Integer numberOfStops) {
 		this.numberOfStops = numberOfStops;
 	}
 	
@@ -168,9 +168,9 @@ public class FlightDetails {
 		super();
 	}
 	
-	public FlightDetails(int id, String airline, int airplaneCapacity, int seatsOccupied, Date scheduledDeparture,
+	public FlightDetails(int id, String airline, Integer airplaneCapacity, Integer seatsOccupied, Date scheduledDeparture,
 			Date actualDeparture, Date scheduledArrival, Date actualArrival, String departureAirport,
-			String arrivalAirport, String airplane, String flightNumer, int numberOfStops) {
+			String arrivalAirport, String airplane, String flightNumer, Integer numberOfStops) {
 		super();
 		this.id = id;
 		this.airline = airline;
