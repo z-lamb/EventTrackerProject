@@ -10,6 +10,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 public class Airplane {
 
@@ -22,6 +24,7 @@ public class Airplane {
 	@ManyToOne
 	@JoinColumn(name="airplane_type_id")
 	private AirplaneType airplaneType;
+	@JsonIgnore
 	@OneToMany(mappedBy="airplane")
 	private List<Flight> flights;
 	

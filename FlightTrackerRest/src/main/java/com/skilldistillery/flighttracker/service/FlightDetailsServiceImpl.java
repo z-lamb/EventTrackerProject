@@ -48,46 +48,46 @@ public class FlightDetailsServiceImpl implements FlightDetailsService {
 	}
 
 	@Override
-	public Flight update(int flightId, Flight flightDetails) {
+	public Flight update(int flightId, Flight flight) {
 		Flight updatedFlight = null;
 		Optional<Flight> optionalFlightDetails = flightDetailsRepo.findById(flightId);
 		if(optionalFlightDetails.isPresent()) {
 			updatedFlight = optionalFlightDetails.get();
-//			updatedFlight.setAirline(flightDetails.getAirline());
-//			updatedFlight.setAirplaneCapacity(flightDetails.getAirplaneCapacity());
-			updatedFlight.setSeatsOccupied(flightDetails.getSeatsOccupied());
-			updatedFlight.setScheduledDeparture(flightDetails.getScheduledDeparture());
-			updatedFlight.setActualDeparture(flightDetails.getActualDeparture());
-			updatedFlight.setScheduledArrival(flightDetails.getScheduledArrival());
-			updatedFlight.setActualArrival(flightDetails.getActualArrival());
-			updatedFlight.setDepartureAirport(flightDetails.getDepartureAirport());
-			updatedFlight.setArrivalAirport(flightDetails.getArrivalAirport());
-			updatedFlight.setAirplane(flightDetails.getAirplane());
-			updatedFlight.setFlightNumer(flightDetails.getFlightNumer());
-			updatedFlight.setNumberOfStops(flightDetails.getNumberOfStops());
+//			updatedFlight.setAirline(flight.getAirline());
+//			updatedFlight.setAirplaneCapacity(flight.getAirplaneCapacity());
+			updatedFlight.setSeatsOccupied(flight.getSeatsOccupied());
+			updatedFlight.setScheduledDeparture(flight.getScheduledDeparture());
+			updatedFlight.setActualDeparture(flight.getActualDeparture());
+			updatedFlight.setScheduledArrival(flight.getScheduledArrival());
+			updatedFlight.setActualArrival(flight.getActualArrival());
+			updatedFlight.setDepartureAirport(flight.getDepartureAirport());
+			updatedFlight.setArrivalAirport(flight.getArrivalAirport());
+			updatedFlight.setAirplane(flight.getAirplane());
+			updatedFlight.setFlightNumer(flight.getFlightNumer());
+			updatedFlight.setNumberOfStops(flight.getNumberOfStops());
 			flightDetailsRepo.saveAndFlush(updatedFlight);
 		}
 		return updatedFlight;
 	}
 
 	@Override
-	public Flight patch(int flightId, Flight flightDetails) {
+	public Flight patch(int flightId, Flight flight) {
 		Flight patchedFlight = null;
 		Optional<Flight> optionalFlightDetails = flightDetailsRepo.findById(flightId);
 		if(optionalFlightDetails.isPresent()) {
 			patchedFlight = optionalFlightDetails.get();
-//			if(flightDetails.getAirline() != null) {patchedFlight.setAirline(flightDetails.getAirline());}
-//			if(flightDetails.getAirplaneCapacity() != null) {patchedFlight.setAirplaneCapacity(flightDetails.getAirplaneCapacity());}
-			if(flightDetails.getSeatsOccupied() != null) {patchedFlight.setSeatsOccupied(flightDetails.getSeatsOccupied());}
-			if(flightDetails.getScheduledDeparture() != null) {patchedFlight.setScheduledDeparture(flightDetails.getScheduledDeparture());}
-			if(flightDetails.getActualDeparture() != null) {patchedFlight.setActualDeparture(flightDetails.getActualDeparture());}
-			if(flightDetails.getScheduledArrival() != null) {patchedFlight.setScheduledArrival(flightDetails.getScheduledArrival());}
-			if(flightDetails.getActualArrival() != null) {patchedFlight.setActualArrival(flightDetails.getActualArrival());}
-			if(flightDetails.getDepartureAirport() != null) {patchedFlight.setDepartureAirport(flightDetails.getDepartureAirport());}
-			if(flightDetails.getArrivalAirport() != null) {patchedFlight.setArrivalAirport(flightDetails.getArrivalAirport());}
-			if(flightDetails.getAirplane() != null) {patchedFlight.setAirplane(flightDetails.getAirplane());}
-			if(flightDetails.getFlightNumer() != null) {patchedFlight.setFlightNumer(flightDetails.getFlightNumer());}
-			if(flightDetails.getNumberOfStops() != null) {patchedFlight.setNumberOfStops(flightDetails.getNumberOfStops());}
+//			if(flight.getAirline() != null) {patchedFlight.setAirline(flight.getAirline());}
+//			if(flight.getAirplaneCapacity() != null) {patchedFlight.setAirplaneCapacity(flight.getAirplaneCapacity());}
+			if(flight.getSeatsOccupied() != null) {patchedFlight.setSeatsOccupied(flight.getSeatsOccupied());}
+			if(flight.getScheduledDeparture() != null) {patchedFlight.setScheduledDeparture(flight.getScheduledDeparture());}
+			if(flight.getActualDeparture() != null) {patchedFlight.setActualDeparture(flight.getActualDeparture());}
+			if(flight.getScheduledArrival() != null) {patchedFlight.setScheduledArrival(flight.getScheduledArrival());}
+			if(flight.getActualArrival() != null) {patchedFlight.setActualArrival(flight.getActualArrival());}
+			if(flight.getDepartureAirport() != null) {patchedFlight.setDepartureAirport(flight.getDepartureAirport());}
+			if(flight.getArrivalAirport() != null) {patchedFlight.setArrivalAirport(flight.getArrivalAirport());}
+			if(flight.getAirplane() != null) {patchedFlight.setAirplane(flight.getAirplane());}
+			if(flight.getFlightNumer() != null) {patchedFlight.setFlightNumer(flight.getFlightNumer());}
+			if(flight.getNumberOfStops() != null) {patchedFlight.setNumberOfStops(flight.getNumberOfStops());}
 			flightDetailsRepo.saveAndFlush(patchedFlight);
 		}
 		return patchedFlight;

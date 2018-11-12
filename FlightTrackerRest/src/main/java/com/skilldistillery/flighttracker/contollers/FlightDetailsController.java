@@ -47,9 +47,9 @@ public class FlightDetailsController {
 	}
 	
 	@PostMapping("flights")
-	public Flight create(@RequestBody Flight flightDetails, HttpServletResponse resp, HttpServletRequest req) {
+	public Flight create(@RequestBody Flight flight, HttpServletResponse resp, HttpServletRequest req) {
 		Flight newFlightDetails = null;
-		newFlightDetails = flightDetailsService.create(flightDetails);
+		newFlightDetails = flightDetailsService.create(flight);
 		if(newFlightDetails == null) {
 			resp.setStatus(400);
 		}
@@ -75,9 +75,9 @@ public class FlightDetailsController {
 	}
 	
 	@PutMapping("flights/{flightId}")
-	public Flight update(@PathVariable("flightId") int flightId, @RequestBody Flight flightDetails, HttpServletResponse resp) {
+	public Flight update(@PathVariable("flightId") int flightId, @RequestBody Flight flight, HttpServletResponse resp) {
 		Flight updatedDetails = null;
-		updatedDetails = flightDetailsService.update(flightId, flightDetails);
+		updatedDetails = flightDetailsService.update(flightId, flight);
 		if(updatedDetails !=  null) {
 			resp.setStatus(202);
 		}

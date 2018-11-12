@@ -8,6 +8,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 public class Airline {
 	
@@ -15,6 +17,7 @@ public class Airline {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int id;
 	private String name;
+	@JsonIgnore
 	@OneToMany(mappedBy = "airline")
 	private List<Airplane> airplanes;
 	

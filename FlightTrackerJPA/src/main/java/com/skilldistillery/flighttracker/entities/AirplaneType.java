@@ -9,6 +9,8 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 @Table(name="airplane_type")
 public class AirplaneType {
@@ -20,6 +22,7 @@ public class AirplaneType {
 	private String type;
 	private Integer capacity;
 	private Boolean wifi;
+	@JsonIgnore
 	@OneToMany(mappedBy="airplaneType")
 	private List<Airplane> airplanes;
 	
