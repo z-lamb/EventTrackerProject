@@ -6,7 +6,6 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.skilldistillery.flighttracker.entities.Airplane;
 import com.skilldistillery.flighttracker.entities.AirplaneType;
 import com.skilldistillery.flighttracker.repositories.AirplaneTypeRepository;
 

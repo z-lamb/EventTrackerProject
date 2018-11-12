@@ -111,8 +111,6 @@ public class Airport {
 				.append(", city=").append(city)
 				.append(", state=").append(state)
 				.append(", country=").append(country)
-				.append(", departureAirport=").append(departureAirport.size())
-				.append(", arrivalAirport=").append(arrivalAirport.size())
 				.append("]");
 		return builder.toString();
 	}
