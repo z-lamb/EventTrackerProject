@@ -96,7 +96,6 @@ public class AirplaneType {
 				.append(", type=").append(type)
 				.append(", capacity=").append(capacity)
 				.append(", wifi=").append(wifi)
-				.append(", airplanes=").append(airplanes.size())
 				.append("]");
 		return builder.toString();
 	}
