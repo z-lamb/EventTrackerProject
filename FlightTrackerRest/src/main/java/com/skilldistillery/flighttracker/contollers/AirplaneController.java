@@ -15,14 +15,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.skilldistillery.flighttracker.entities.Airplane;
-import com.skilldistillery.flighttracker.service.AirplaneServiceImpl;
+import com.skilldistillery.flighttracker.service.AirplaneService;
 
 @RestController
 @RequestMapping("api")
 public class AirplaneController {
 
 	@Autowired
-	private AirplaneServiceImpl airplaneService;
+	private AirplaneService airplaneService;
 	
 	@GetMapping("airplanes")
 	public List<Airplane> index(HttpServletResponse resp){

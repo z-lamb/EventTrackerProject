@@ -70,7 +70,6 @@ public class Airline {
 		StringBuilder builder = new StringBuilder();
 		builder.append("Airline [id=").append(id)
 		.append(", name=").append(name)
-		.append(", airplanes=").append(airplanes.size())
 		.append("]");
 		return builder.toString();
 	}

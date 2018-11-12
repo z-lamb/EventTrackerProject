@@ -17,14 +17,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.skilldistillery.flighttracker.entities.Flight;
-import com.skilldistillery.flighttracker.service.FlightServiceImpl;
+import com.skilldistillery.flighttracker.service.FlightService;
 
 @RestController
 @RequestMapping("api")
 public class FlightController {
 
 	@Autowired
-	private FlightServiceImpl flightService;
+	private FlightService flightService;
 
 	@GetMapping("flights")
 	public List<Flight> index(HttpServletResponse resp) {
