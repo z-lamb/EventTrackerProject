@@ -14,9 +14,8 @@ public interface FlightService {
 
 	boolean delete(int flightId);
 
-	Flight update(int flightId, Flight flight);
+	Flight update(int flightId, Flight flight, int arrivalId, int departureId, int airplaneId);
 
-	Flight patch(int flightId, Flight flight);
-
+	Flight patch(int flightId, Flight flight, int arrivalId, int departureId, int airplaneId);
 
 }

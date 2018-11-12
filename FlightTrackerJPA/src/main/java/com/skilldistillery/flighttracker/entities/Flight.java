@@ -31,7 +31,7 @@ public class Flight {
 	private String flightNumer;
 	@Column(name="number_of_stops")
 	private Integer numberOfStops;
-	private boolean available;
+	private Boolean available;
 	@ManyToOne
 	@JoinColumn(name="airplane_id")
 	private Airplane airplane;
@@ -109,11 +109,11 @@ public class Flight {
 		this.numberOfStops = numberOfStops;
 	}
 
-	public boolean isAvailable() {
+	public Boolean isAvailable() {
 		return available;
 	}
 
-	public void setAvailable(boolean available) {
+	public void setAvailable(Boolean available) {
 		this.available = available;
 	}
 
@@ -187,7 +187,7 @@ public class Flight {
 	}
 
 	public Flight(int id, Integer seatsOccupied, Date scheduledDeparture, Date actualDeparture, Date scheduledArrival,
-			Date actualArrival, String flightNumer, Integer numberOfStops, boolean available, Airplane airplane,
+			Date actualArrival, String flightNumer, Integer numberOfStops, Boolean available, Airplane airplane,
 			Airport departureAirport, Airport arrivalAirport) {
 		super();
 		this.id = id;
