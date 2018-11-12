@@ -31,16 +31,16 @@ public class FlightServiceImpl implements FlightService {
 	@Override
 	public Flight findById(int flightId) {
 		Flight findById = null;
-		Optional<Flight> optionalFlightDetails = flightRepo.findById(flightId);
-		if (optionalFlightDetails.isPresent()) {
-			findById = optionalFlightDetails.get();
+		Optional<Flight> optionalFlight = flightRepo.findById(flightId);
+		if (optionalFlight.isPresent()) {
+			findById = optionalFlight.get();
 		}
 		return findById;
 	}
 
 	@Override
 	public Flight create(Flight flight, int arrivalId, int departureId, int airplaneId) {
-		Flight newFlightDetails = null;
+		Flight newFlight = null;
 		Airplane airplane = null;
 		Airport departureAirport = null;
 		Airport arrivalAirport = null;
@@ -56,11 +56,11 @@ public class FlightServiceImpl implements FlightService {
 				if (optionalArrival.isPresent()) {
 					arrivalAirport = optionalArrival.get();
 					flight.setArrivalAirport(arrivalAirport);
-					newFlightDetails = flightRepo.saveAndFlush(flight);
+					newFlight = flightRepo.saveAndFlush(flight);
 				}
 			}
 		}
-		return newFlightDetails;
+		return newFlight;
 	}
 
 	@Override
@@ -79,9 +79,9 @@ public class FlightServiceImpl implements FlightService {
 		Airplane airplane = null;
 		Airport departureAirport = null;
 		Airport arrivalAirport = null;
-		Optional<Flight> optionalFlightDetails = flightRepo.findById(flightId);
-		if (optionalFlightDetails.isPresent()) {
-			updatedFlight = optionalFlightDetails.get();
+		Optional<Flight> optionalFlight = flightRepo.findById(flightId);
+		if (optionalFlight.isPresent()) {
+			updatedFlight = optionalFlight.get();
 			Optional<Airplane> optionalAirplane = airplaneRepo.findById(airplaneId);
 			if (optionalAirplane.isPresent()) {
 				airplane = optionalAirplane.get();
@@ -116,9 +116,9 @@ public class FlightServiceImpl implements FlightService {
 		Airplane airplane = null;
 		Airport departureAirport = null;
 		Airport arrivalAirport = null;
-		Optional<Flight> optionalFlightDetails = flightRepo.findById(flightId);
-		if (optionalFlightDetails.isPresent()) {
-			patchedFlight = optionalFlightDetails.get();
+		Optional<Flight> optionalFlight = flightRepo.findById(flightId);
+		if (optionalFlight.isPresent()) {
+			patchedFlight = optionalFlight.get();
 			Optional<Airplane> optionalAirplane = airplaneRepo.findById(airplaneId);
 			if (optionalAirplane.isPresent()) {
 				airplane = optionalAirplane.get();

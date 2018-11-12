@@ -21,7 +21,7 @@ class FlightTest {
 	
 	private static EntityManagerFactory emf;
 	private EntityManager em;
-	private Flight flightDetails;
+	private Flight flight;
 
 	@BeforeAll
 	static void setUpBeforeClass() throws Exception {
@@ -36,7 +36,7 @@ class FlightTest {
 	@BeforeEach
 	void setUp() throws Exception {
 		em = emf.createEntityManager();
-		flightDetails = em.find(Flight.class, 1);
+		flight = em.find(Flight.class, 1);
 	}
 
 	@AfterEach
@@ -45,21 +45,21 @@ class FlightTest {
 	}
 	
 	@Test
-	@DisplayName("Test Flight Details Mappings")
-	void test_FlightDetailsMappings() {
-		assertNotNull(flightDetails);
-		assertEquals(170, flightDetails.getSeatsOccupied().intValue());
-		assertEquals(Timestamp.valueOf("2018-11-12 06:00:00.0"), flightDetails.getScheduledDeparture());
-		assertNull(flightDetails.getActualDeparture());
-		assertEquals(Timestamp.valueOf("2018-11-12 10:00:00.0"), flightDetails.getScheduledArrival());
-		assertNull(flightDetails.getActualArrival());
-		assertEquals("1235", flightDetails.getFlightNumer());
-		assertEquals(0, flightDetails.getNumberOfStops().intValue());
-		assertEquals(true, flightDetails.isAvailable());
-		assertEquals("Boeing", flightDetails.getAirplane().getAirplaneType().getMaker());
-		assertEquals("Southwest Airlines", flightDetails.getAirplane().getAirline().getName());
-		assertEquals("DEN", flightDetails.getDepartureAirport().getCode());
-		assertEquals("MDW", flightDetails.getArrivalAirport().getCode());
+	@DisplayName("Test Flight Mappings")
+	void test_FlightMappings() {
+		assertNotNull(flight);
+		assertEquals(170, flight.getSeatsOccupied().intValue());
+		assertEquals(Timestamp.valueOf("2018-11-12 06:00:00.0"), flight.getScheduledDeparture());
+		assertNull(flight.getActualDeparture());
+		assertEquals(Timestamp.valueOf("2018-11-12 10:00:00.0"), flight.getScheduledArrival());
+		assertNull(flight.getActualArrival());
+		assertEquals("1235", flight.getFlightNumer());
+		assertEquals(0, flight.getNumberOfStops().intValue());
+		assertEquals(true, flight.isAvailable());
+		assertEquals("Boeing", flight.getAirplane().getAirplaneType().getMaker());
+		assertEquals("Southwest Airlines", flight.getAirplane().getAirline().getName());
+		assertEquals("DEN", flight.getDepartureAirport().getCode());
+		assertEquals("MDW", flight.getArrivalAirport().getCode());
 	}
 
 }

@@ -10,7 +10,11 @@
     </provider>
 
 		<!-- entities listed here (need fully qualified name) -->
-		<class>com.skilldistillery.flighttracker.entities.FlightDetails</class>
+		<class>com.skilldistillery.flighttracker.entities.Airline</class>
+		<class>com.skilldistillery.flighttracker.entities.Airplane</class>
+		<class>com.skilldistillery.flighttracker.entities.AirplaneType</class>
+		<class>com.skilldistillery.flighttracker.entities.Airport</class>
+		<class>com.skilldistillery.flighttracker.entities.Flight</class>
 
 		<properties>
 			<!-- connection to the database -->

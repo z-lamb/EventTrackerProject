@@ -41,8 +41,8 @@ class AirportTest {
 	}
 	
 	@Test
-	@DisplayName("Test Airline Mappings")
-	void test_FlightDetailsMappings() {
+	@DisplayName("Test Airport Mappings")
+	void test_AirportMappings() {
 		assertNotNull(airport);
 		assertEquals("Denver International Airport", airport.getName());
 		assertEquals("DEN", airport.getCode());

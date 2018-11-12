@@ -41,8 +41,8 @@ class AirplaneTypeTest {
 	}
 	
 	@Test
-	@DisplayName("Test Airline Mappings")
-	void test_FlightDetailsMappings() {
+	@DisplayName("Test AirlineType Mappings")
+	void test_AirlineTypeMappings() {
 		assertNotNull(airplaneType);
 		assertEquals("Boeing", airplaneType.getMaker());
 		assertEquals("737-MAX", airplaneType.getType());

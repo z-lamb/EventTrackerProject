@@ -43,7 +43,7 @@ class AirlineTest {
 	
 	@Test
 	@DisplayName("Test Airline Mappings")
-	void test_FlightDetailsMappings() {
+	void test_AirlineMappings() {
 		assertNotNull(airline);
 		assertEquals("Southwest Airlines", airline.getName());
 	}

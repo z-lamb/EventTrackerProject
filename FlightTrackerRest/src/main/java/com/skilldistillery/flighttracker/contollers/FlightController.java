@@ -28,38 +28,38 @@ public class FlightController {
 
 	@GetMapping("flights")
 	public List<Flight> index(HttpServletResponse resp) {
-		List<Flight> flightDetails = null;
-		flightDetails = flightService.findAll();
-		if (flightDetails.isEmpty()) {
+		List<Flight> flights = null;
+		flights = flightService.findAll();
+		if (flights.isEmpty()) {
 			resp.setStatus(404);
 		}
-		return flightDetails;
+		return flights;
 	}
 
 	@GetMapping("flights/{flightId}")
 	public Flight flightById(@PathVariable("flightId") int flightId, HttpServletResponse resp) {
-		Flight flightDetails = null;
-		flightDetails = flightService.findById(flightId);
-		if (flightDetails == null) {
+		Flight flight = null;
+		flight = flightService.findById(flightId);
+		if (flight == null) {
 			resp.setStatus(404);
 		}
-		return flightDetails;
+		return flight;
 	}
 
 	@PostMapping("flights/arrival/{arrivalId}/departure/{departureId}/airplane/{airplaneId}")
 	public Flight create(@RequestBody Flight flight, @PathVariable("arrivalId") int arrivalId,
 			@PathVariable("departureId") int departureId, @PathVariable("airplaneId") int airplaneId,
 			HttpServletResponse resp, HttpServletRequest req) {
-		Flight newFlightDetails = null;
-		newFlightDetails = flightService.create(flight, arrivalId, departureId, airplaneId);
-		if (newFlightDetails == null) {
+		Flight newFlight = null;
+		newFlight = flightService.create(flight, arrivalId, departureId, airplaneId);
+		if (newFlight == null) {
 			resp.setStatus(400);
 		} else {
 			resp.setStatus(201);
-			String newResourceUrl = req.getRequestURL() + "/" + newFlightDetails.getId();
+			String newResourceUrl = req.getRequestURL() + "/" + newFlight.getId();
 			resp.setHeader("Location", newResourceUrl);
 		}
-		return newFlightDetails;
+		return newFlight;
 	}
 
 	@DeleteMapping("flights/{flightId}")
@@ -78,23 +78,28 @@ public class FlightController {
 	public Flight update(@PathVariable("flightId") int flightId, @RequestBody Flight flight, @PathVariable("arrivalId") int arrivalId,
 			@PathVariable("departureId") int departureId, @PathVariable("airplaneId") int airplaneId,
 			HttpServletResponse resp) {
-		Flight updatedDetails = null;
-		updatedDetails = flightService.update(flightId, flight, arrivalId, departureId, airplaneId);
-		if (updatedDetails != null) {
+		Flight updatedFlight = null;
+		updatedFlight = flightService.update(flightId, flight, arrivalId, departureId, airplaneId);
+		if (updatedFlight != null) {
 			resp.setStatus(202);
 		} else {
 			resp.setStatus(400);
 		}
-		return updatedDetails;
+		return updatedFlight;
 	}
 
 	@PatchMapping("flights/{flightId}/arrival/{arrivalId}/departure/{departureId}/airplane/{airplaneId}")
 	public Flight patchUpdate(@PathVariable("flightId") int flightId, @RequestBody Flight flight, @PathVariable("arrivalId") int arrivalId,
 			@PathVariable("departureId") int departureId, @PathVariable("airplaneId") int airplaneId,
 			HttpServletResponse resp) {
-		Flight patchedDetails = null;
-		patchedDetails = flightService.patch(flightId, flight, arrivalId, departureId, airplaneId);
-		return patchedDetails;
+		Flight patchedFlight = null;
+		patchedFlight = flightService.patch(flightId, flight, arrivalId, departureId, airplaneId);
+		if(patchedFlight != null) {
+			resp.setStatus(202);
+		} else {
+			resp.setStatus(404);
+		}
+		return patchedFlight;
 	}
 
 	@GetMapping("ping")
