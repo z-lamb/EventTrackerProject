@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.skilldistillery.flighttracker.entities.FlightDetails;
+import com.skilldistillery.flighttracker.entities.Flight;
 import com.skilldistillery.flighttracker.service.FlightDetailsServiceImpl;
 
 @RestController
@@ -27,8 +27,8 @@ public class FlightDetailsController {
 	private FlightDetailsServiceImpl flightDetailsService;
 	
 	@GetMapping("flights")
-	public List<FlightDetails> index(HttpServletResponse resp){
-		List<FlightDetails> flightDetails = null;
+	public List<Flight> index(HttpServletResponse resp){
+		List<Flight> flightDetails = null;
 		flightDetails = flightDetailsService.findAll();
 		if(flightDetails.isEmpty()) {
 			resp.setStatus(404);
@@ -37,8 +37,8 @@ public class FlightDetailsController {
 	}
 	
 	@GetMapping("flights/{flightId}")
-	public FlightDetails flightById(@PathVariable("flightId") int flightId, HttpServletResponse resp) {
-		FlightDetails flightDetails = null;
+	public Flight flightById(@PathVariable("flightId") int flightId, HttpServletResponse resp) {
+		Flight flightDetails = null;
 		flightDetails = flightDetailsService.findById(flightId);
 		if(flightDetails == null) {
 			resp.setStatus(404);
@@ -47,8 +47,8 @@ public class FlightDetailsController {
 	}
 	
 	@PostMapping("flights")
-	public FlightDetails create(@RequestBody FlightDetails flightDetails, HttpServletResponse resp, HttpServletRequest req) {
-		FlightDetails newFlightDetails = null;
+	public Flight create(@RequestBody Flight flightDetails, HttpServletResponse resp, HttpServletRequest req) {
+		Flight newFlightDetails = null;
 		newFlightDetails = flightDetailsService.create(flightDetails);
 		if(newFlightDetails == null) {
 			resp.setStatus(400);
@@ -75,8 +75,8 @@ public class FlightDetailsController {
 	}
 	
 	@PutMapping("flights/{flightId}")
-	public FlightDetails update(@PathVariable("flightId") int flightId, @RequestBody FlightDetails flightDetails, HttpServletResponse resp) {
-		FlightDetails updatedDetails = null;
+	public Flight update(@PathVariable("flightId") int flightId, @RequestBody Flight flightDetails, HttpServletResponse resp) {
+		Flight updatedDetails = null;
 		updatedDetails = flightDetailsService.update(flightId, flightDetails);
 		if(updatedDetails !=  null) {
 			resp.setStatus(202);
@@ -88,8 +88,8 @@ public class FlightDetailsController {
 	}
 	
 	@PatchMapping("flights/{flightId}")
-	public FlightDetails patchUpdate(@PathVariable("flightId") int flightId, @RequestBody FlightDetails flightDetails, HttpServletResponse resp) {
-		FlightDetails patchedDetails = null;
+	public Flight patchUpdate(@PathVariable("flightId") int flightId, @RequestBody Flight flightDetails, HttpServletResponse resp) {
+		Flight patchedDetails = null;
 		patchedDetails = flightDetailsService.patch(flightId, flightDetails);
 		return patchedDetails;
 	}

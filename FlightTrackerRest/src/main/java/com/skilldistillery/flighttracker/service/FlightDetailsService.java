@@ -2,20 +2,20 @@ package com.skilldistillery.flighttracker.service;
 
 import java.util.List;
 
-import com.skilldistillery.flighttracker.entities.FlightDetails;
+import com.skilldistillery.flighttracker.entities.Flight;
 
 public interface FlightDetailsService {
 
-	List<FlightDetails> findAll();
+	List<Flight> findAll();
 
-	FlightDetails findById(int flightId);
+	Flight findById(int flightId);
 
-	FlightDetails create(FlightDetails flightDetails);
+	Flight create(Flight flightDetails);
 
 	boolean delete(int flightId);
 
-	FlightDetails update(int flightId, FlightDetails flightDetails);
+	Flight update(int flightId, Flight flightDetails);
 
-	FlightDetails patch(int flightId, FlightDetails flightDetails);
+	Flight patch(int flightId, Flight flightDetails);
 
 }

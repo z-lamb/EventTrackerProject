@@ -17,11 +17,11 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-class FlightDetailsTest {
+class FlightTest {
 	
 	private static EntityManagerFactory emf;
 	private EntityManager em;
-	private FlightDetails flightDetails;
+	private Flight flightDetails;
 
 	@BeforeAll
 	static void setUpBeforeClass() throws Exception {
@@ -36,7 +36,7 @@ class FlightDetailsTest {
 	@BeforeEach
 	void setUp() throws Exception {
 		em = emf.createEntityManager();
-		flightDetails = em.find(FlightDetails.class, 1);
+		flightDetails = em.find(Flight.class, 1);
 	}
 
 	@AfterEach
@@ -48,18 +48,18 @@ class FlightDetailsTest {
 	@DisplayName("Test Flight Details Mappings")
 	void test_FlightDetailsMappings() {
 		assertNotNull(flightDetails);
-		assertEquals("Southwest", flightDetails.getAirline());
-		assertEquals(175, flightDetails.getAirplaneCapacity().intValue());
 		assertEquals(170, flightDetails.getSeatsOccupied().intValue());
 		assertEquals(Timestamp.valueOf("2018-11-12 06:00:00.0"), flightDetails.getScheduledDeparture());
 		assertNull(flightDetails.getActualDeparture());
 		assertEquals(Timestamp.valueOf("2018-11-12 10:00:00.0"), flightDetails.getScheduledArrival());
 		assertNull(flightDetails.getActualArrival());
-		assertEquals("DEN", flightDetails.getDepartureAirport());
-		assertEquals("MDW", flightDetails.getArrivalAirport());
-		assertEquals("Boeing 737-MAX", flightDetails.getAirplane());
-		assertNull(flightDetails.getFlightNumer());
+		assertEquals("1235", flightDetails.getFlightNumer());
 		assertEquals(0, flightDetails.getNumberOfStops().intValue());
+		assertEquals(true, flightDetails.isAvailable());
+		assertEquals("Boeing", flightDetails.getAirplane().getAirplaneType().getMaker());
+		assertEquals("Southwest Airlines", flightDetails.getAirplane().getAirline().getName());
+		assertEquals("DEN", flightDetails.getDepartureAirport().getCode());
+		assertEquals("MDW", flightDetails.getArrivalAirport().getCode());
 	}
 
 }
