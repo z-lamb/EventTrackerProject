@@ -7,23 +7,26 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.skilldistillery.flighttracker.entities.Flight;
-import com.skilldistillery.flighttracker.repositories.FlightDetailsRepository;
+import com.skilldistillery.flighttracker.repositories.AirportRepository;
+import com.skilldistillery.flighttracker.repositories.FlightRepository;
 
 @Service
-public class FlightDetailsServiceImpl implements FlightDetailsService {
+public class FlightServiceImpl implements FlightService {
 
 	@Autowired
-	private FlightDetailsRepository flightDetailsRepo;
+	private FlightRepository flightRepo;
+	@Autowired
+	private AirportRepository airportRepo;
 	
 	@Override
 	public List<Flight> findAll(){
-		return flightDetailsRepo.findAll();
+		return flightRepo.findAll();
 	}
 	
 	@Override
 	public Flight findById(int flightId) {
 		Flight findById = null;
-		Optional<Flight> optionalFlightDetails = flightDetailsRepo.findById(flightId);
+		Optional<Flight> optionalFlightDetails = flightRepo.findById(flightId);
 		if(optionalFlightDetails.isPresent()) {
 			findById = optionalFlightDetails.get();
 		}
@@ -31,17 +34,18 @@ public class FlightDetailsServiceImpl implements FlightDetailsService {
 	}
 	
 	@Override
-	public Flight create(Flight flightDetails) {
+	public Flight create(Flight flight, int arrivalId, int departureId, int airplaneId) {
 		Flight newFlightDetails = null;
-		newFlightDetails = flightDetailsRepo.saveAndFlush(flightDetails);
+		
+		newFlightDetails = flightRepo.saveAndFlush(flight);
 		return newFlightDetails;
 	}
 
 	@Override
 	public boolean delete(int flightId) {
 		boolean deleted = false;
-		if(flightDetailsRepo.existsById(flightId)) {
-			flightDetailsRepo.deleteById(flightId);
+		if(flightRepo.existsById(flightId)) {
+			flightRepo.deleteById(flightId);
 			deleted = true;
 		}
 		return deleted;
@@ -50,7 +54,7 @@ public class FlightDetailsServiceImpl implements FlightDetailsService {
 	@Override
 	public Flight update(int flightId, Flight flight) {
 		Flight updatedFlight = null;
-		Optional<Flight> optionalFlightDetails = flightDetailsRepo.findById(flightId);
+		Optional<Flight> optionalFlightDetails = flightRepo.findById(flightId);
 		if(optionalFlightDetails.isPresent()) {
 			updatedFlight = optionalFlightDetails.get();
 //			updatedFlight.setAirline(flight.getAirline());
@@ -65,7 +69,7 @@ public class FlightDetailsServiceImpl implements FlightDetailsService {
 			updatedFlight.setAirplane(flight.getAirplane());
 			updatedFlight.setFlightNumer(flight.getFlightNumer());
 			updatedFlight.setNumberOfStops(flight.getNumberOfStops());
-			flightDetailsRepo.saveAndFlush(updatedFlight);
+			flightRepo.saveAndFlush(updatedFlight);
 		}
 		return updatedFlight;
 	}
@@ -73,7 +77,7 @@ public class FlightDetailsServiceImpl implements FlightDetailsService {
 	@Override
 	public Flight patch(int flightId, Flight flight) {
 		Flight patchedFlight = null;
-		Optional<Flight> optionalFlightDetails = flightDetailsRepo.findById(flightId);
+		Optional<Flight> optionalFlightDetails = flightRepo.findById(flightId);
 		if(optionalFlightDetails.isPresent()) {
 			patchedFlight = optionalFlightDetails.get();
 //			if(flight.getAirline() != null) {patchedFlight.setAirline(flight.getAirline());}
@@ -88,7 +92,7 @@ public class FlightDetailsServiceImpl implements FlightDetailsService {
 			if(flight.getAirplane() != null) {patchedFlight.setAirplane(flight.getAirplane());}
 			if(flight.getFlightNumer() != null) {patchedFlight.setFlightNumer(flight.getFlightNumer());}
 			if(flight.getNumberOfStops() != null) {patchedFlight.setNumberOfStops(flight.getNumberOfStops());}
-			flightDetailsRepo.saveAndFlush(patchedFlight);
+			flightRepo.saveAndFlush(patchedFlight);
 		}
 		return patchedFlight;
 	}

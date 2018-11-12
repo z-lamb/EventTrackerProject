@@ -82,8 +82,8 @@ public class Airplane {
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
 		builder.append("Airplane [id=").append(id)
-				.append(", airline=").append(airline)
-				.append(", airplaneType=").append(airplaneType)
+				.append(", airline=").append(airline.getName())
+				.append(", airplaneType=").append(airplaneType.getMaker())
 				.append(", flights=").append(flights.size())
 				.append("]");
 		return builder.toString();

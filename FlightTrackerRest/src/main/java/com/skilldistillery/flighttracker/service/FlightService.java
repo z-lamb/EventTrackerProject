@@ -4,18 +4,19 @@ import java.util.List;
 
 import com.skilldistillery.flighttracker.entities.Flight;
 
-public interface FlightDetailsService {
+public interface FlightService {
 
 	List<Flight> findAll();
 
 	Flight findById(int flightId);
 
-	Flight create(Flight flightDetails);
+	Flight create(Flight flight, int arrivalId, int departureId, int airplaneId);
 
 	boolean delete(int flightId);
 
-	Flight update(int flightId, Flight flightDetails);
+	Flight update(int flightId, Flight flight);
 
-	Flight patch(int flightId, Flight flightDetails);
+	Flight patch(int flightId, Flight flight);
+
 
 }

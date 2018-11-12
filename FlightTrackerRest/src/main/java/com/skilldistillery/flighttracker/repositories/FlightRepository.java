@@ -4,7 +4,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 import com.skilldistillery.flighttracker.entities.Flight;
 
-
-public interface FlightDetailsRepository extends JpaRepository<Flight, Integer> {
+public interface FlightRepository extends JpaRepository<Flight, Integer> {
 
 }
