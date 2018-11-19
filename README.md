@@ -3,13 +3,15 @@
 #### Created By Zachary Lamb
 
 ### Summary
-This program was strictly built out a desire to challenge myself. This is a basic flight tracker that I believe an airport would use to keep track of flights coming in and going out. It was only built out to 5 database tables but when thinking of the magnitude that this project could become is astonishing to me. I find it fascinating that there are all of these underlying processes out in the world that we take for granted. This project helped give me a little look at the real world and I am excited to jump into it soon. This project was built just after week 11 of the boot camp meaning I only have 5 more weeks to go until graduation.
+This program was strictly built out a desire to challenge myself. This is a basic flight tracker that I believe an airport would use to keep track of flights coming in and going out. It was only built out to 5 database tables but when thinking of the magnitude that this project could become is astonishing to me. I find it fascinating that there are all of these underlying processes out in the world that we take for granted. This project helped give me a little look at the real world and I am excited to jump into it soon. This project was built just after week 11 of the boot camp meaning I only have 5 more weeks to go until graduation. The second part of this project was to add a JavaScript front end to be able to access your database. This was done after the 12th week of the course.
 
 ### Overview
 The premise and goal of this project was to build out an event tracker. We had full control of the project from start to finish. I came up with the idea and coded everything to make it work. I choose a flight tracker which I thought would be fun and challenging.
 
 #### Operation/Description of how the program works:
 This program was primarily tested with Postman to ensure that all functionality worked.
+
+The JavaScript front end has a few bugs in it and will require the user to take the golden path to ensure that all of it works smoothly. The primary issue is that if a user does anything else first besides adding a new flight, the other functionality stops working. I did not have enough time to figure out how else to make all functionality work so that no issues would come up.
 
 #### Paths/Routes
 
@@ -111,16 +113,19 @@ Patches an entity. Not all values are required to update these entities. If you 
 | Controller         |
 | Repositories       |
 | RESTful Services   |
+| JavaScript         |
 
 #### Lessons Learned
 - The set up is always the hardest and most important part of any project. If you first don't get it set up right the first time you will have issues down the road or nothing will even work. Down the road if you try to edit and change things it will require a whole reworking of everything.
 - One of the things I found interesting is that if you have an entity that only contains foreign keys I had to create and update based on the URL path. So if you need to create or update you would just add/or change the id to what you would like it to go to.
 - One big thing that I learned was that I like RESTful service much more than using ModeAndView. I am excited to see how the front end connects to it.
-- I made some assumptions being that someone would have pulled up the longer URLs on the front end. 
+- I made some assumptions being that someone would have pulled up the longer URLs on the front end.
+- I learned that JavaScript is not my friend. I need more time to work with JavaScript to have a good understanding of it. A good description I was told recently of JavaScript is that it is like the wild west and I need more time in the wild west to understand it fully.
 
 #### Problems/Issues
 - I had a few issues in getting things all set up at the beginning with talking to the datbase. But once everything was good to go the rest of the program was pretty straigh forward.
 - I was having an issue with how the JSon was coming back. It had to do with any of the lists being a part an entity. The solution was to remove the list from the toString of each entity that had a list. Even though I had @JsonIgnore on the lists and the toString list had .size() it was still causing issues.
+-
 
 #### Things we were unable to add or incorporate
 - I would have liked to build out more database tables
