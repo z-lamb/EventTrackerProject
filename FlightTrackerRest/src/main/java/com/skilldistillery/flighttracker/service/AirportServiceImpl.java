@@ -88,4 +88,14 @@ public class AirportServiceImpl implements AirportService {
 		}
 		return patchedAirport;
 	}
+
+	@Override
+	public Airport findByCode(String airportCode) {
+		Airport findByCode = null;
+		Airport airportFromCode = airportRepo.findByCode(airportCode);
+		if(airportFromCode != null) {
+			findByCode = airportFromCode;
+		}
+		return findByCode;
+	}
 }

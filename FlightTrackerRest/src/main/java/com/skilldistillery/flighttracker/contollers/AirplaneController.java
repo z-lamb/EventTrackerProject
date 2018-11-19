@@ -44,7 +44,7 @@ public class AirplaneController {
 		return airplane;
 	}
 	
-	@PostMapping("airplanes/airline/{airlineId}/airplaneType/{airplaneTypeId}")
+	@PostMapping("airplanes/airlines/{airlineId}/airplaneTypes/{airplaneTypeId}")
 	public Airplane create(@PathVariable("airlineId") int airlineId, @PathVariable("airplaneTypeId") int airplaneTypeId, HttpServletResponse resp, HttpServletRequest req) {
 		Airplane newAirplane = null;
 		newAirplane = airplaneService.create(airlineId, airplaneTypeId);
@@ -70,7 +70,7 @@ public class AirplaneController {
 		return deleted;
 	}
 	
-	@PatchMapping("airplanes/{airplaneId}/airline/{airlineId}/airplaneType/{airplaneTypeId}")
+	@PatchMapping("airplanes/{airplaneId}/airlines/{airlineId}/airplaneTypes/{airplaneTypeId}")
 	public Airplane patchUpdate(@PathVariable("airplaneId") int airplaneId, @PathVariable("airlineId") int airlineId, @PathVariable("airplaneTypeId") int airplaneTypeId,
 			HttpServletResponse resp) {
 		Airplane patchedAirplane = null;
@@ -81,5 +81,15 @@ public class AirplaneController {
 			resp.setStatus(404);
 		}
 		return patchedAirplane;
+	}
+	
+	@GetMapping("airplanes/airlines/{airlineName}/airplaneMakers/{airplaneMaker}/airplaneTypes/{airplaneType}/fights/{flightId}")
+	public Airplane airplaneByAirlineNameAndAirplaneTypeName(@PathVariable("airlineName") String airlineName, @PathVariable("airplaneTypeName") String airplaneTypeName, HttpServletResponse resp) {
+		Airplane airplane = null;
+		airplane = airplaneService.airplaneByAirlineNameAndAirplaneTypeName(airlineName, airplaneTypeName);
+		if (airplane == null) {
+			resp.setStatus(404);
+		}
+		return airplane;
 	}
 }

@@ -99,7 +99,7 @@ public class FlightServiceImpl implements FlightService {
 						updatedFlight.setActualDeparture(flight.getActualDeparture());
 						updatedFlight.setScheduledArrival(flight.getScheduledArrival());
 						updatedFlight.setActualArrival(flight.getActualArrival());
-						updatedFlight.setFlightNumer(flight.getFlightNumer());
+						updatedFlight.setFlightNumber(flight.getFlightNumber());
 						updatedFlight.setNumberOfStops(flight.getNumberOfStops());
 						updatedFlight.setAvailable(flight.isAvailable());
 						flightRepo.saveAndFlush(updatedFlight);
@@ -152,8 +152,8 @@ public class FlightServiceImpl implements FlightService {
 						if (flight.getArrivalAirport() != null) {
 							patchedFlight.setArrivalAirport(flight.getArrivalAirport());
 						}
-						if (flight.getFlightNumer() != null) {
-							patchedFlight.setFlightNumer(flight.getFlightNumer());
+						if (flight.getFlightNumber() != null) {
+							patchedFlight.setFlightNumber(flight.getFlightNumber());
 						}
 						if (flight.getNumberOfStops() != null) {
 							patchedFlight.setNumberOfStops(flight.getNumberOfStops());

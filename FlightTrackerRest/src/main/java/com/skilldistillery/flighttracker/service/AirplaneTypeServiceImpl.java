@@ -84,4 +84,11 @@ public class AirplaneTypeServiceImpl implements AirplaneTypeService {
 		}
 		return patchedAirplaneType;
 	}
+
+	@Override
+	public Integer numberOfWifiPlanes() {
+		return airplaneTypeRepo.numberOfWifiPlanes();
+	}
+	
+	
 }

@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import com.skilldistillery.flighttracker.entities.Airline;
 import com.skilldistillery.flighttracker.entities.Airplane;
 import com.skilldistillery.flighttracker.entities.AirplaneType;
+import com.skilldistillery.flighttracker.entities.Airport;
 import com.skilldistillery.flighttracker.repositories.AirlineRepository;
 import com.skilldistillery.flighttracker.repositories.AirplaneRepository;
 import com.skilldistillery.flighttracker.repositories.AirplaneTypeRepository;
@@ -89,6 +90,16 @@ public class AirplaneServiceImpl implements AirplaneService {
 			}
 		}
 		return patchedAirplane;
+	}
+
+	@Override
+	public Airplane airplaneByAirlineNameAndAirplaneTypeName(String airlineName, String airplaneTypeName) {
+		Airplane airplaneByAirlineNameAndAirplaneTypeName = null;
+		Airplane foundAirplane = airplaneRepo.airplaneByAirlineNameAndAirplaneTypeName(airlineName, airplaneTypeName);
+		if(foundAirplane != null) {
+			airplaneByAirlineNameAndAirplaneTypeName = foundAirplane;
+		}
+		return airplaneByAirlineNameAndAirplaneTypeName;
 	}
 	
 }

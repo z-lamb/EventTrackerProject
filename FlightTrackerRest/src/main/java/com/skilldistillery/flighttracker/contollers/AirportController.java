@@ -95,4 +95,15 @@ public class AirportController {
 		}
 		return patchedAirport;
 	}
+	
+	@GetMapping("airports/code/{airportCode}")
+	public Airport airportByCode(@PathVariable("airportCode") String airportCode, HttpServletResponse resp) {
+		Airport airport = null;
+		airport = airportService.findByCode(airportCode);
+		if (airport == null) {
+			resp.setStatus(404);
+		}
+		return airport;
+	}
+	
 }

@@ -53,7 +53,7 @@ class FlightTest {
 		assertNull(flight.getActualDeparture());
 		assertEquals(Timestamp.valueOf("2018-11-12 10:00:00.0"), flight.getScheduledArrival());
 		assertNull(flight.getActualArrival());
-		assertEquals("1235", flight.getFlightNumer());
+		assertEquals("1235", flight.getFlightNumber());
 		assertEquals(0, flight.getNumberOfStops().intValue());
 		assertEquals(true, flight.isAvailable());
 		assertEquals("Boeing", flight.getAirplane().getAirplaneType().getMaker());

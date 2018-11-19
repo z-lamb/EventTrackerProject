@@ -18,4 +18,6 @@ public interface AirplaneTypeService {
 
 	AirplaneType patch(int airplaneTypeId, AirplaneType airplaneType);
 
+	Integer numberOfWifiPlanes();
+
 }

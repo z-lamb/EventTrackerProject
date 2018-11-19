@@ -86,7 +86,7 @@ public class AirplaneTypeController {
 	
 	@PatchMapping("airplaneTypes/{airplaneTypeId}")
 	public AirplaneType patch(@PathVariable("airplaneTypeId") int airplaneTypeId, @RequestBody AirplaneType airplaneType, HttpServletResponse resp) {
-		AirplaneType patchedAirplaneType;
+		AirplaneType patchedAirplaneType = null;
 		patchedAirplaneType = airplaneTypeService.patch(airplaneTypeId, airplaneType);
 		if (patchedAirplaneType != null) {
 			resp.setStatus(202);
@@ -94,5 +94,15 @@ public class AirplaneTypeController {
 			resp.setStatus(400);
 		}
 		return patchedAirplaneType;
+	}
+	
+	@GetMapping("airplaneTypes/wifi")
+	public Integer getAirplaneTypeWithWifi(HttpServletResponse resp) {
+		Integer numberOfWifiPlanes = null;
+		numberOfWifiPlanes = airplaneTypeService.numberOfWifiPlanes();
+		if (numberOfWifiPlanes == null) {
+			resp.setStatus(404);
+		}
+		return numberOfWifiPlanes;
 	}
 }

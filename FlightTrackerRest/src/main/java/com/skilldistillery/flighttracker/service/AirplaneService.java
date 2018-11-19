@@ -16,4 +16,6 @@ public interface AirplaneService {
 
 	Airplane patch(int airplaneId, int airlineId, int airplaneTypeId);
 
+	Airplane airplaneByAirlineNameAndAirplaneTypeName(String airlineName, String airplaneTypeName);
+
 }

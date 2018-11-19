@@ -18,4 +18,6 @@ public interface AirportService {
 
 	Airport patch(int airportId, Airport airport);
 
+	Airport findByCode(String airportCode);
+
 }

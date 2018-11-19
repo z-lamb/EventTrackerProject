@@ -46,7 +46,7 @@ public class FlightController {
 		return flight;
 	}
 
-	@PostMapping("flights/arrival/{arrivalId}/departure/{departureId}/airplane/{airplaneId}")
+	@PostMapping("flights/arrivals/{arrivalId}/departures/{departureId}/airplanes/{airplaneId}")
 	public Flight create(@RequestBody Flight flight, @PathVariable("arrivalId") int arrivalId,
 			@PathVariable("departureId") int departureId, @PathVariable("airplaneId") int airplaneId,
 			HttpServletResponse resp, HttpServletRequest req) {
@@ -74,12 +74,13 @@ public class FlightController {
 		return deleted;
 	}
 
-	@PutMapping("flights/{flightId}/arrival/{arrivalId}/departure/{departureId}/airplane/{airplaneId}")
+	@PutMapping("flights/{flightId}/arrivals/{arrivalId}/departures/{departureId}/airplanes/{airplaneId}")
 	public Flight update(@PathVariable("flightId") int flightId, @RequestBody Flight flight, @PathVariable("arrivalId") int arrivalId,
 			@PathVariable("departureId") int departureId, @PathVariable("airplaneId") int airplaneId,
 			HttpServletResponse resp) {
 		Flight updatedFlight = null;
 		updatedFlight = flightService.update(flightId, flight, arrivalId, departureId, airplaneId);
+		System.out.println(updatedFlight);
 		if (updatedFlight != null) {
 			resp.setStatus(202);
 		} else {
@@ -88,7 +89,7 @@ public class FlightController {
 		return updatedFlight;
 	}
 
-	@PatchMapping("flights/{flightId}/arrival/{arrivalId}/departure/{departureId}/airplane/{airplaneId}")
+	@PatchMapping("flights/{flightId}/arrivals/{arrivalId}/departures/{departureId}/airplanes/{airplaneId}")
 	public Flight patchUpdate(@PathVariable("flightId") int flightId, @RequestBody Flight flight, @PathVariable("arrivalId") int arrivalId,
 			@PathVariable("departureId") int departureId, @PathVariable("airplaneId") int airplaneId,
 			HttpServletResponse resp) {

@@ -27,7 +27,7 @@ public class Flight {
 	@Column(name="actual_arrival")
 	private Date actualArrival;
 	@Column(name="flight_number")
-	private String flightNumer;
+	private String flightNumber;
 	@Column(name="number_of_stops")
 	private Integer numberOfStops;
 	private Boolean available;
@@ -92,12 +92,12 @@ public class Flight {
 		this.actualArrival = actualArrival;
 	}
 
-	public String getFlightNumer() {
-		return flightNumer;
+	public String getFlightNumber() {
+		return flightNumber;
 	}
 
-	public void setFlightNumer(String flightNumer) {
-		this.flightNumer = flightNumer;
+	public void setFlightNumber(String flightNumber) {
+		this.flightNumber = flightNumber;
 	}
 
 	public Integer getNumberOfStops() {
@@ -171,7 +171,7 @@ public class Flight {
 				.append(", actualDeparture=").append(actualDeparture)
 				.append(", scheduledArrival=").append(scheduledArrival)
 				.append(", actualArrival=").append(actualArrival)
-				.append(", flightNumer=").append(flightNumer)
+				.append(", flightNumber=").append(flightNumber)
 				.append(", numberOfStops=").append(numberOfStops)
 				.append(", available=").append(available)
 				.append(", airplane=").append(airplane)
@@ -186,7 +186,7 @@ public class Flight {
 	}
 
 	public Flight(int id, Integer seatsOccupied, Date scheduledDeparture, Date actualDeparture, Date scheduledArrival,
-			Date actualArrival, String flightNumer, Integer numberOfStops, Boolean available, Airplane airplane,
+			Date actualArrival, String flightNumber, Integer numberOfStops, Boolean available, Airplane airplane,
 			Airport departureAirport, Airport arrivalAirport) {
 		super();
 		this.id = id;
@@ -195,7 +195,7 @@ public class Flight {
 		this.actualDeparture = actualDeparture;
 		this.scheduledArrival = scheduledArrival;
 		this.actualArrival = actualArrival;
-		this.flightNumer = flightNumer;
+		this.flightNumber = flightNumber;
 		this.numberOfStops = numberOfStops;
 		this.available = available;
 		this.airplane = airplane;

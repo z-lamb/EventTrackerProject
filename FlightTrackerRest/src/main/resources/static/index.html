@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Flight Tracker</title>
+    <script src="js/flight.js" charset="utf-8"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/flight.css">
+  </head>
+  <body>
+    <h1>Flight Tracker</h1>
+    Number Of Airplanes with WiFi: <span id='wifi'></span><br />
+    <button id="displayAllFlights">Dislplay All Flights</button>
+    <form name="displaySingleFlight">
+      <input type="number" name="number" placeholder="Enter a number">
+      <input type="submit" name="displaySingleFlight" />
+    </form>
+
+    <table>
+      <tbody>
+        <form name="createNewFlight" id='editForm'>
+          <tr>
+            <td class="tableForm tableAlightRight">Flight Number</td>
+            <td class="tableForm"><input type='number' name='flightNumber' placeholder='Flight Number' /></td>
+          </tr>
+          <tr>
+            <td class="tableForm tableAlightRight">Departure Airport</td>
+            <td class="tableForm"><input type='number' name='departureAirport' placeholder='Departure Airport Id' /></td>
+          </tr>
+          <tr>
+            <td class="tableForm tableAlightRight">Arrival Airport</td>
+            <td class="tableForm"><input type='number' name='arrivalAirport' placeholder='Arrival Airport Id' /></td>
+          </tr>
+          <tr>
+            <td class="tableForm tableAlightRight">Scheduled Departure</td>
+            <td class="tableForm"><input type='datetime-local' name='scheduledDeparture' placeholder='Scheduled Departure' /></td>
+          </tr>
+          <tr>
+            <td class="tableForm tableAlightRight">Actual Departure</td>
+            <td class="tableForm"><input type='datetime-local' name='actualDeparture' placeholder='Actual Departure' /></td>
+          </tr>
+          <tr>
+            <td class="tableForm tableAlightRight">Scheduled Arrival</td>
+            <td class="tableForm"><input type='datetime-local' name='scheduledArrival' placeholder='Scheduled Arrival' /></td>
+          </tr>
+          <tr>
+            <td class="tableForm tableAlightRight">Actual Arrival</td>
+            <td class="tableForm"><input type='datetime-local' name='actualArrival' placeholder='Actual Arrival' /></td>
+          </tr>
+          <tr>
+            <td class="tableForm tableAlightRight">Number Of Stops</td>
+            <td class="tableForm"><input type='number' name='numberOfStops' placeholder='Number Of Stops' /></td>
+          </tr>
+          <tr>
+            <td class="tableForm tableAlightRight">Airplane</td>
+            <td class="tableForm"><input type='number' name='airplane' placeholder='Airplane Number' /></td>
+          </tr>
+          <tr>
+            <td class="tableForm tableAlightRight">Seats Occupied</td>
+            <td class="tableForm"><input type='number' name='seatsOccupied' placeholder='Seats Occupied' /></td>
+          </tr>
+          <tr>
+            <td class="tableForm tableAlightRight">Available</td>
+            <td class="tableForm"><input type='text' name='available' placeholder='True/False' /></td>
+          </tr>
+          <tr>
+          	<td class="tableForm" id='buttonPosition' colspan="2" align="center">
+              <input type='submit' name='submitNewFlight' id='submitNewFlight' value='Create New FLight'>
+            </td>
+          </tr>
+        </form>
+      </tbody>
+    </table>
+    <div id="displayFlights"></div>
+  </body>
+</html>
