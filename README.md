@@ -24,7 +24,7 @@ Use these numbers to ensure you are grabbing proper ids:
 - arrivalId: 1-4
 - departureId: 1-4
 
-#####GetMethod
+##### GetMethod
 Obtains information from the database, no special information needed
 - api/ping
 - Flights
@@ -43,7 +43,7 @@ Obtains information from the database, no special information needed
 	- api/airports
 	- api/airports/{airportId}
 
-#####PostMethod
+##### PostMethod
 Creates an entity. For Flights and Airplanes you must have required ids in the path. The entities required for Flights and Airplanes must be created before you create a new flight.
 - Flights
 	- api/flights/arrival/{arrivalId}/departure/{departureId}/airplane/{airplaneId}
@@ -56,7 +56,7 @@ Creates an entity. For Flights and Airplanes you must have required ids in the p
 - Airports
 	- api/airports
 
-#####DeleteMethod
+##### DeleteMethod
 Deletes entity
 - Flights
 	- api/flights/{flightId}
@@ -69,7 +69,7 @@ Deletes entity
 - Airports
 	- api/airports/{airportId}
 
-#####PutMethod
+##### PutMethod
 Updates an entity. For Flights you must have required ids in the path. The entities required for Flights and Airplanes must be created before you update a new flight. If you would like to update the arrival, departure, or airplane of a flight all you need to do is change the id number to update what you would like. For the put method you must include all non null items in your JSon Body Request.
 - Flights
 	- api/flights/{flightId}/arrival/{arrivalId}/departure/{departureId}/airplane/{airplaneId}
@@ -81,7 +81,7 @@ Updates an entity. For Flights you must have required ids in the path. The entit
 	- api/airports/{airportId}
 
 
-#####PatchMethod
+##### PatchMethod
 Patches an entity. Not all values are required to update these entities. If you would like to update an airplane, all that is needed is to change the value in the URL. No RequestBody required. The same goes for flights, you can update the arrival, departure, and airplane by changing the number in the URL and no RequestBody required although you can also update just the items you want in the RequestBody as well.
 - Flights
 	- api/flights/{flightId}/arrival/{arrivalId}/departure/{departureId}/airplane/{airplaneId}
