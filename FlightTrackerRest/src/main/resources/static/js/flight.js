@@ -365,9 +365,7 @@ function printFlights(printFlights) {
    * Adds an event listener to each row If a row is clicked on it will put the
    * table information into the form already on the page
    */
-  createdTableBodyRow
-    .addEventListener(
-      'click',
+  createdTableBodyRow.addEventListener('click',
       function(event) {
         // grabs the row information to be able to pull
         // information from it
@@ -446,8 +444,7 @@ function printFlights(printFlights) {
         form.appendChild(createdHiddenValue);
 
         // dynamically removes the submit button
-        let submitButton = document
-          .getElementById('submitNewFlight');
+        let submitButton = document.getElementById('submitNewFlight');
         if (submitButton != null) {
           submitButton.parentNode.removeChild(submitButton);
         }
@@ -455,12 +452,10 @@ function printFlights(printFlights) {
         // dynamically adds new update button
         let updateButton = document.createElement('input');
         updateButton.setAttribute('type', 'submit');
-        updateButton
-          .setAttribute('name', 'submitUpdatedFlight');
+        updateButton.setAttribute('name', 'submitUpdatedFlight');
         updateButton.setAttribute('id', 'submitUpdatedFlight');
         updateButton.setAttribute('value', 'Update Flight');
-        let buttonPosition = document
-          .getElementById('buttonPosition')
+        let buttonPosition = document.getElementById('buttonPosition')
         buttonPosition.appendChild(updateButton);
 
         // dynamically add new clear button
@@ -482,13 +477,10 @@ function printFlights(printFlights) {
         /*
          * Update button flight event listener
          */
-        updateButton
-          .addEventListener(
-            'click',
+        updateButton.addEventListener('click',
             function(event) {
               event.preventDefault();
-              let updatedFlightForm = document
-                .getElementById('editForm');
+              let updatedFlightForm = document.getElementById('editForm');
               let updatedFlight = {
                 seatsOccupied: updatedFlightForm.seatsOccupied.value,
                 scheduledDeparture: updatedFlightForm.scheduledDeparture.value,
